@@ -20,9 +20,13 @@ response = requests.get(url)
 print(response)
 
 currencies = response.json()
-pprint(currencies)
 
-print(currency['name'])
-print(currency['rank'])
-print(currency['price_usd'])
-print(currency['id'])
+for currency in currencies:
+  print(currency['name'])
+  print(currency['rank'])
+  print(currency['price_usd'])
+  print(currency['id'])
+
+
+
+
