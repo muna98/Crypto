@@ -26,7 +26,7 @@ for currency in currencies:
   print(currency['rank'])
   print(currency['price_usd'])
   print(currency['id'])
-
+  print(currency['rank'])
 
 
 
