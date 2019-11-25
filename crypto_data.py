@@ -1,3 +1,6 @@
+import requests
+import pprint
+
 currency = input('Do you know what a crytocurrency is? (y/n) ?')
 if currency =='y':
    cryptocurrency_name = input('What kinds of cryptocurrenies do you know?')
@@ -5,12 +8,6 @@ if currency =='y':
 else:
     print('A cryptocurrency is a digital asset designed to work as a medium of exchange that uses strong cryptography to secure financial transactions, control the creation of additional units, and verify the transfer of assets.')
 
-
-
-
-
-import requests
-from pprint import pprint
 
 crypto_id = input('Which currency do you want to look up?')
 
@@ -21,12 +18,18 @@ print(response)
 
 currencies = response.json()
 
+cryptonames = []
 for currency in currencies:
-  print(currency['name'])
-  print(currency['rank'])
-  print(currency['price_usd'])
-  print(currency['id'])
+    cryptonames.append(currency['id'].lower())
+print(cryptonames)
 
+name_index = cryptonames.index(crypto_id.lower())
+print(name_index)
+
+coin = currencies[name_index]
+print(coin)
+
+print(coin['rank'])
 
 
 
