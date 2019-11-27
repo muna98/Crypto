@@ -1,7 +1,10 @@
-<<<<<<< HEAD
 import requests
 import pprint
 import numpy as np
+
+url = 'https://api.coinmarketcap.com/v1/ticker/'
+response = requests.get(url)
+currencies = response.json()
 
 currency = input('Do you know what a crytocurrency is? (y/n) ?')
 if currency =='y':
@@ -36,9 +39,6 @@ print(coin['price_usd'])
 print(coin['percent_change_24h'])
 print(coin['percent_change_1h'])
 
-
-
-
 # Top 10 crypotocurrencies for price(in USD).
 print('-' * 50)
 print('Top 10 crypotocurrencies for price(in USD)')
@@ -72,8 +72,7 @@ for price in top10_marketcap[:10]:
     print(price['name'])
     print(price['market_cap_usd'])
 
-# Cryptoprice converter(to USD) .
-currency_name = str(input('Which currency do you want to look up?'))
+# Cryptoprice converter(to USD).
 for d in currencies:
     if d['name'] == currency_name:
         p = float((d['price_usd']))
@@ -87,32 +86,3 @@ def usd_converter(n, p):
 
 
 usd_converter(n, p)
-
-
-from prettytable import PrettyTable
-
-table = PrettyTable()
-
-for currency in currencies:
-    name = (coin)[currency]['name']
-    price = (coin)[currency]['quotes']['USD']['price']
-    change_1h = currencies[currency]['quotes']['USD']['percent_change_1h']
-    change_24h = currencies[currency]['quotes']['USD']['percent_change_24h']
-    change_7d = currencies[currency]['quotes']['USD']['percent_change_7d']
-
-    table.add_row([name,price,change_1h,change_24h,change_7d])
-
-table.field_names = ["Name","Price","Change 1h","Change 24h","Change 7d"]
-table.sortby = "Change 24h"
-table.reversesort = True
-print(table)
-
-=======
-import requests
-from pprint import pprint
-
-url = 'https://api.coinmarketcap.com/v1/ticker/'
-response = requests.get(url)
-currencies = response.json()
-pprint(currencies)
->>>>>>> master
