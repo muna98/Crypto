@@ -39,7 +39,7 @@ print(coin['price_usd'])
 print(coin['percent_change_24h'])
 print(coin['percent_change_1h'])
 
-# Top 10 crypotocurrencies for price(in USD).
+# Top 10 crypotocurrencies ordered by price (in USD).
 print('-' * 50)
 print('Top 10 crypotocurrencies for price(in USD)')
 print('-' * 50)
@@ -50,7 +50,7 @@ for price in top10_price[:10]:
     print(price['name'])
     print(price['price_usd'])
 
-# Top 10 crypotocurrencies for 24h_volume_usd .
+# Top 10 crypotocurrencies ordered by 24h_volume_usd .
 print('-' * 50)
 print('Top 10 crypotocurrencies for 24h_volume_usd')
 print('-' * 50)
@@ -61,7 +61,7 @@ for price in top10_volume[:10]:
     print(price['name'])
     print(price['24h_volume_usd'])
 
-# Top 10 crypotocurrencies for market cap.
+# Top 10 crypotocurrencies ordered by market cap.
 print('-' * 50)
 print('Top 10 crypotocurrencies for market cap')
 print('-' * 50)
@@ -72,7 +72,8 @@ for price in top10_marketcap[:10]:
     print(price['name'])
     print(price['market_cap_usd'])
 
-# Cryptoprice converter(to USD).
+# Cryptoprice converter(to USD) .
+currency_name = str(input('Which currency do you want to look up?'))
 for d in currencies:
     if d['name'] == currency_name:
         p = float((d['price_usd']))
@@ -80,9 +81,7 @@ for d in currencies:
 
 n = float(input('How many coins you have?'))
 
-
 def usd_converter(n, p):
     print(n * p)
-
 
 usd_converter(n, p)
